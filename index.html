@@ -1,0 +1,1772 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Pocket 3">
+<meta name="theme-color" content="#F4F5F2">
+<style>
+  :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); color-scheme: light dark; }
+  html, body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<title>Pocket 3 in Argentina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@500;600&family=Karla:wght@400;500;700&display=swap">
+
+<style>
+  :root {
+    --paper:   #F4F5F2;
+    --card:    #FFFFFF;
+    --sunk:    #EAECE7;
+    --ink:     #141D26;
+    --ink-2:   #4A5A68;
+    --rule:    #D7DCD6;
+    --celeste: #226E9F;
+    --celeste-soft: #E2EEF6;
+    --sol:     #9E6710;
+    --sol-soft:#F6EDDC;
+    --rec:     #A7332A;
+    --rec-soft:#F8E6E3;
+    --ok:      #2A6E51;
+    --ok-soft: #E3F0E9;
+
+    --display: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --body: 'Karla', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:   #0F151B;
+      --card:    #171F27;
+      --sunk:    #1D2731;
+      --ink:     #E9EEF1;
+      --ink-2:   #9CACB8;
+      --rule:    #29353F;
+      --celeste: #74B8E2;
+      --celeste-soft: #14293A;
+      --sol:     #E0A94A;
+      --sol-soft:#2B2213;
+      --rec:     #E58275;
+      --rec-soft:#301A16;
+      --ok:      #6FC79B;
+      --ok-soft: #14271E;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:   #0F151B;
+    --card:    #171F27;
+    --sunk:    #1D2731;
+    --ink:     #E9EEF1;
+    --ink-2:   #9CACB8;
+    --rule:    #29353F;
+    --celeste: #74B8E2;
+    --celeste-soft: #14293A;
+    --sol:     #E0A94A;
+    --sol-soft:#2B2213;
+    --rec:     #E58275;
+    --rec-soft:#301A16;
+    --ok:      #6FC79B;
+    --ok-soft: #14271E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.55;
+    margin: 0;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .wrap {
+    max-width: 660px;
+    margin: 0 auto;
+    padding-inline: 20px;
+    padding-block: 0 72px;
+  }
+
+  /* ---------- app header ---------- */
+  .bar {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 20;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+  }
+  .bar-inner {
+    max-width: 660px;
+    margin: 0 auto;
+    display: flex;
+    align-items: stretch;
+    min-height: 44px;
+  }
+
+  .tabs {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-inline: 14px;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tabs a {
+    flex: none;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink-2);
+    padding: 14px 10px 11px;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+  }
+  .tabs a:hover { color: var(--ink); }
+  .tabs a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--celeste); }
+  .tabs a.flag[aria-current="page"] { border-bottom-color: var(--rec); }
+  .tabs a.flag { color: var(--rec); }
+
+  .tab-search {
+    flex: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 12px 0 10px;
+    background: var(--paper);
+  }
+  .tab-search::before {
+    content: "";
+    position: absolute;
+    left: -26px; top: 0; bottom: 0;
+    width: 26px;
+    background: linear-gradient(to right, rgba(0,0,0,0), var(--paper));
+    pointer-events: none;
+  }
+  .bar-btn {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px; height: 32px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--ink-2);
+    cursor: pointer;
+    padding: 0;
+  }
+  .bar-btn:hover { background: var(--sunk); color: var(--ink); }
+  .bar-btn[aria-current="page"] { background: var(--celeste-soft); color: var(--celeste); }
+  .bar-btn svg { width: 18px; height: 18px; display: block; }
+
+  #offline-badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 4px 9px;
+    border-radius: 999px;
+    border: 1px solid var(--rule);
+    color: var(--ink-2);
+    background: var(--sunk);
+    white-space: nowrap;
+  }
+  #offline-badge[data-state="ready"] { color: var(--ok); background: var(--ok-soft); border-color: transparent; }
+  #offline-badge[data-state="warn"]  { color: var(--sol); background: var(--sol-soft); border-color: transparent; }
+
+  /* ---------- home menu ---------- */
+  .status-line {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 14px;
+    color: var(--ink-2);
+    margin-block: 20px 4px;
+  }
+
+  .menu-head {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    margin: 34px 0 0;
+  }
+  .menu { display: grid; gap: 1px; background: var(--rule); border-block: 1px solid var(--rule); margin-top: 10px; }
+  .menu a {
+    display: grid;
+    grid-template-columns: 30px 1fr 14px;
+    gap: 12px;
+    align-items: center;
+    background: var(--paper);
+    padding: 14px 4px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .menu a:hover, .menu a:focus-visible { background: var(--sunk); }
+  .menu .n {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-2);
+    text-align: right;
+  }
+  .menu .t { display: block; font-family: var(--display); font-weight: 700; font-size: 17px; letter-spacing: -0.01em; }
+  .menu .d { display: block; font-size: 14px; color: var(--ink-2); margin-top: 2px; line-height: 1.35; }
+  .hits .where, .hits .snip { display: block; }
+  .menu .chev { color: var(--ink-2); opacity: 0.6; }
+  .menu a.urgent .t { color: var(--rec); }
+
+  /* ---------- search ---------- */
+  .search-field {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-block: 22px 18px;
+  }
+  .search-field svg { width: 17px; height: 17px; flex: none; color: var(--ink-2); }
+  .search-field input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: var(--body);
+    font-size: 17px;
+    color: var(--ink);
+  }
+  .search-field input::placeholder { color: var(--ink-2); opacity: 0.8; }
+  .search-field input::-webkit-search-cancel-button,
+  .search-field input::-webkit-search-decoration { -webkit-appearance: none; appearance: none; display: none; }
+  .search-clear {
+    border: none; background: transparent; cursor: pointer;
+    color: var(--ink-2); font-size: 20px; line-height: 1; padding: 0 2px;
+  }
+
+  .hits { display: grid; gap: 1px; background: var(--rule); border-block: 1px solid var(--rule); }
+  .hits a {
+    display: block;
+    background: var(--paper);
+    padding: 13px 4px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .hits a:hover, .hits a:focus-visible { background: var(--sunk); }
+  .hits .where {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--celeste);
+    display: block;
+    margin-bottom: 3px;
+  }
+  .hits .snip { font-size: 15px; line-height: 1.45; color: var(--ink-2); }
+  .hits .snip mark, mark {
+    background: var(--sol-soft);
+    color: var(--ink);
+    font-weight: 700;
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+  .search-empty { color: var(--ink-2); font-size: 16px; padding-block: 18px; }
+  .search-hint { color: var(--ink-2); font-size: 15px; padding-block: 4px; }
+  .search-hint b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- pager ---------- */
+  .pager {
+    display: flex;
+    gap: 10px;
+    margin-top: 34px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+  }
+  .pager a {
+    flex: 1;
+    min-width: 0;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 10px 12px;
+    background: var(--card);
+  }
+  .pager a:hover { border-color: var(--celeste); }
+  .pager .lab {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    margin-bottom: 2px;
+  }
+  .pager .nm { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
+  .pager .next { text-align: right; }
+
+  /* ---------- masthead ---------- */
+  .mast { padding-block: 34px 8px; }
+  .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--celeste);
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(34px, 9vw, 48px);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+    margin: 0 0 14px;
+  }
+  .standfirst {
+    font-size: 18px;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 34em;
+  }
+
+  /* ---------- sections as pages ---------- */
+  .wrap > section { display: none; padding-block: 26px 6px; }
+  .wrap > section.is-active { display: block; }
+  .wrap > section:focus { outline: none; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    margin: 0 0 8px;
+  }
+  h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(24px, 6vw, 30px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    margin: 0 0 12px;
+  }
+  h3 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    margin: 24px 0 6px;
+  }
+  p { margin: 0 0 14px; }
+  a { color: var(--celeste); }
+
+  strong { font-weight: 700; }
+  .mono { font-family: var(--mono); font-size: 0.86em; font-weight: 600; }
+  .key {
+    font-family: var(--mono);
+    font-size: 0.8em;
+    font-weight: 600;
+    background: var(--sunk);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1px 5px;
+    white-space: nowrap;
+  }
+
+  /* ---------- the big opening card ---------- */
+  .prime {
+    background: var(--card);
+    border: 2px solid var(--ink);
+    border-radius: 4px;
+    padding: 20px;
+    margin-block: 18px 8px;
+  }
+  .prime h2 { margin-bottom: 4px; }
+  .prime .lede { color: var(--ink-2); margin-bottom: 18px; }
+
+  ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: s; }
+  ol.steps > li {
+    counter-increment: s;
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+  ol.steps > li::before {
+    content: counter(s);
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: center;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper);
+    margin-top: 2px;
+  }
+  ol.steps p { margin: 0; }
+  ol.steps > li > p { grid-column: 2; }
+  ol.steps .sub { color: var(--ink-2); font-size: 15px; margin-top: 2px; }
+
+  /* ---------- notes ---------- */
+  .note {
+    border-left: 3px solid var(--celeste);
+    background: var(--celeste-soft);
+    padding: 12px 14px;
+    margin-block: 16px;
+    border-radius: 0 4px 4px 0;
+    font-size: 16px;
+  }
+  .note p:last-child { margin-bottom: 0; }
+  .note.warn { border-color: var(--sol); background: var(--sol-soft); }
+  .note.stop { border-color: var(--rec); background: var(--rec-soft); }
+  .note-label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    color: var(--celeste);
+  }
+  .note.warn .note-label { color: var(--sol); }
+  .note.stop .note-label { color: var(--rec); }
+
+  /* ---------- figures ---------- */
+  figure { margin: 22px 0; }
+  figure svg { display: block; width: 100%; max-width: 100%; height: auto; color: var(--ink); }
+  figcaption {
+    font-size: 14px;
+    color: var(--ink-2);
+    margin-top: 8px;
+    line-height: 1.45;
+  }
+  .stage {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 14px;
+  }
+
+  /* ---------- legend ---------- */
+  dl.legend { margin: 0; display: grid; gap: 10px; }
+  dl.legend > div { display: grid; grid-template-columns: 24px 1fr; gap: 10px; align-items: start; }
+  dl.legend dt {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--celeste);
+    color: var(--card);
+    margin-top: 2px;
+  }
+  dl.legend dd { margin: 0; font-size: 16px; }
+  dl.legend dd b { font-weight: 700; }
+
+  /* ---------- recipes ---------- */
+  .recipes { display: grid; gap: 12px; }
+  .recipe {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 14px 16px;
+  }
+  .recipe h3 {
+    margin: 0 0 6px;
+    font-size: 17px;
+    display: flex;
+    gap: 9px;
+    align-items: baseline;
+  }
+  .recipe h3 .num {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--celeste);
+    flex: none;
+  }
+  .recipe p { margin: 0 0 8px; font-size: 16px; }
+  .recipe p:last-child { margin-bottom: 0; }
+  .spec {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-2);
+    background: var(--sunk);
+    border-radius: 3px;
+    padding: 6px 8px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  /* ---------- rules list ---------- */
+  ul.rules { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  ul.rules li {
+    position: relative;
+    padding-left: 24px;
+    font-size: 16px;
+  }
+  ul.rules li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 9px;
+    width: 9px; height: 9px;
+    border-radius: 2px;
+    background: var(--celeste);
+  }
+  ul.rules li.no::before { background: var(--rec); }
+
+  /* ---------- plain list ---------- */
+  ul.plain { padding-left: 20px; margin: 0 0 14px; }
+  ul.plain li { margin-bottom: 7px; }
+
+  /* ---------- troubleshooting ---------- */
+  details {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--card);
+    margin-bottom: 8px;
+  }
+  details[open] { border-color: var(--celeste); }
+  summary {
+    cursor: pointer;
+    padding: 12px 14px;
+    font-weight: 700;
+    font-size: 16px;
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+";
+    margin-left: auto;
+    font-family: var(--mono);
+    color: var(--ink-2);
+    font-size: 18px;
+    line-height: 1;
+  }
+  details[open] summary::after { content: "\2013"; }
+  .details-body { padding: 0 14px 14px; font-size: 16px; }
+  .details-body p { margin: 0 0 10px; }
+  .details-body p:last-child { margin-bottom: 0; }
+
+  /* ---------- checked-out inventory ---------- */
+  .inv-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-block: 18px 10px;
+  }
+  .inv-count {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--celeste);
+    background: var(--celeste-soft);
+    border-radius: 999px;
+    padding: 4px 10px;
+  }
+  .inv-count[data-all="1"] { color: var(--ok); background: var(--ok-soft); }
+  .inv-reset {
+    margin-left: auto;
+    border: none;
+    background: transparent;
+    color: var(--ink-2);
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 4px 0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .inv-reset:hover { color: var(--ink); }
+
+  ul.inv { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; background: var(--rule); border-block: 1px solid var(--rule); }
+  ul.inv li { margin: 0; background: var(--paper); }
+  ul.inv label {
+    display: grid;
+    grid-template-columns: 20px 52px 1fr;
+    gap: 12px;
+    align-items: center;
+    padding: 11px 4px;
+    cursor: pointer;
+  }
+  ul.inv input { margin: 0; width: 19px; height: 19px; accent-color: var(--celeste); }
+  ul.inv .thumb {
+    width: 52px; height: 52px;
+    border-radius: 6px;
+    background: var(--sunk);
+    border: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--ink-2);
+    letter-spacing: 0.04em;
+  }
+  ul.inv .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  ul.inv .meta { min-width: 0; }
+  ul.inv .nm { display: block; font-weight: 700; font-size: 16px; line-height: 1.3; }
+  ul.inv .no { display: block; font-size: 14px; color: var(--ink-2); line-height: 1.35; margin-top: 1px; }
+  ul.inv input:checked ~ .meta .nm { color: var(--ink-2); text-decoration: line-through; }
+  ul.inv input:checked ~ .thumb { opacity: 0.5; }
+
+  /* ---------- checklist ---------- */
+  ul.check { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+  ul.check li { margin: 0; }
+  ul.check label {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 11px;
+    align-items: start;
+    padding: 8px 4px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+  ul.check input { margin: 3px 0 0; width: 18px; height: 18px; accent-color: var(--celeste); }
+  ul.check input:checked + span { color: var(--ink-2); text-decoration: line-through; }
+
+  /* ---------- table ---------- */
+  .table-scroll { overflow-x: auto; margin-bottom: 14px; }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; min-width: 340px; }
+  th, td { text-align: left; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  td.v { font-family: var(--mono); font-size: 13px; font-weight: 600; white-space: nowrap; }
+
+  footer {
+    display: none;
+    border-top: 1px solid var(--rule);
+    margin-top: 32px;
+    padding-top: 22px;
+    font-size: 14px;
+    color: var(--ink-2);
+  }
+  body[data-page="home"] footer { display: block; }
+  footer a { overflow-wrap: anywhere; }
+
+  :focus-visible { outline: 2px solid var(--celeste); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="bar">
+  <div class="bar-inner">
+    <nav class="tabs" id="tabs" aria-label="Sections">
+      <a href="#home">Start</a>
+      <a href="#body">Camera</a>
+      <a href="#menu">Menu</a>
+      <a href="#settings">Settings</a>
+      <a href="#shots">Shots</a>
+      <a href="#rules">Habits</a>
+      <a href="#mic">Mics</a>
+      <a href="#power">Power</a>
+      <a href="#fix">Fixes</a>
+      <a href="#kit">Checked out</a>
+      <a href="#refs">More</a>
+      <a href="#save" class="flag">Save offline</a>
+    </nav>
+    <div class="tab-search">
+      <button class="bar-btn" id="nav-search" type="button" aria-label="Search the guide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section id="home" class="is-active">
+    <header class="mast">
+      <p class="kicker">Borrowed kit &middot; one week</p>
+      <h1>The Pocket&nbsp;3, explained once.</h1>
+      <p class="standfirst">Everything you need to shoot good-looking footage in Argentina without learning photography. The camera is already set up. Mostly you just press the red button and hold still.</p>
+    </header>
+
+    <p class="status-line"><span id="offline-badge" data-state="checking">checking&hellip;</span> <span id="offline-note">looking for a saved copy</span></p>
+
+    <div class="prime">
+      <h2>The sixty-second version</h2>
+      <p class="lede">This is genuinely enough to come home with good footage.</p>
+      <ol class="steps">
+        <li>
+          <p><strong>Twist the little screen clockwise</strong> to turn the camera on. Twist it back the other way to turn it off.</p>
+          <p class="sub">The head will wobble and level itself for a second or two. That's normal. Let it settle.</p>
+        </li>
+        <li>
+          <p><strong>Press the record button once to start. Press it once to stop.</strong></p>
+          <p class="sub">You'll see a red border and a timer counting up. No red border, no recording — check every time.</p>
+        </li>
+        <li>
+          <p><strong>Hold each shot for a slow count of ten.</strong> Longer than feels natural. Then stop.</p>
+          <p class="sub">Ten-second clips cut together. Three-second clips do not.</p>
+        </li>
+        <li>
+          <p><strong>Walk with it instead of waving it.</strong> Move your feet, keep your wrist still, and let the camera do the smoothing.</p>
+        </li>
+        <li>
+          <p><strong>Don't change any settings.</strong> They're already right for everything you'll shoot.</p>
+        </li>
+      </ol>
+    </div>
+    <div class="note stop">
+      <span class="note-label">Three ways to break it</span>
+      <p><strong>Water.</strong> It is not waterproof. Rain, spray at a waterfall, a spilled drink — any of those can end it. <strong>Sand and dust.</strong> They get into the moving head and it never moves the same again. <strong>Forcing the head by hand.</strong> Never push, twist or hold the camera head to point it. Point the whole camera instead.</p>
+      <p>When it's not in your hand, the cover goes on. The cover is what holds the head still in your bag.</p>
+    </div>
+
+    <div class="note warn" id="do-first">
+      <span class="note-label">Do this bit first</span>
+      <p>The last tab, <strong>Save offline</strong>, takes two minutes on Wi‑Fi and is what makes this guide work when you have no signal. Everything else can wait until you're on the plane.</p>
+    </div>
+
+    <h3 class="menu-head">When you want more than that</h3>
+    <nav class="menu" aria-label="All sections">
+      <a href="#body"><span class="n">01</span><span><span class="t">The camera itself</span><span class="d">Eight parts, two buttons, one thing never to touch</span></span><span class="chev">&rsaquo;</span></a>
+      <a href="#menu"><span class="n">02</span><span><span class="t">The menu</span><span class="d">Four swipes and two taps — that's all of it</span></span><span class="chev">&rsaquo;</span></a>
+      <a href="#settings"><span class="n">03</span><span><span class="t">Settings</span><span class="d">What's already set, and the three worth changing</span></span><span class="chev">&rsaquo;</span></a>
+      <a href="#shots"><span class="n">04</span><span><span class="t">Ten shots</span><span class="d">The recipes that will carry the whole week</span></span><span class="chev">&rsaquo;</span></a>
+      <a href="#rules"><span class="n">05</span><span><span class="t">Eight habits</span><span class="d">What beginners get wrong, and how not to</span></span><span class="chev">&rsaquo;</span></a>
+      <a href="#mic"><span class="n">06</span><span><span class="t">The wireless mics</span><span class="d">Pairing, placement, and when to bother</span></span><span class="chev">&rsaquo;</span></a>
+      <a href="#power"><span class="n">07</span><span><span class="t">Battery, card, plugs</span><span class="d">Logistics, and what's different in Argentina</span></span><span class="chev">&rsaquo;</span></a>
+      <a href="#fix"><span class="n">08</span><span><span class="t">If something goes wrong</span><span class="d">Nearly everything is fixed by turning it off</span></span><span class="chev">&rsaquo;</span></a>
+      <a href="#kit"><span class="n">09</span><span><span class="t">Checked out</span><span class="d">Every item you're borrowing, with a tick-box each</span></span><span class="chev">&rsaquo;</span></a>
+      <a href="#refs"><span class="n">10</span><span><span class="t">More</span><span class="d">DJI's own guides — these need signal</span></span><span class="chev">&rsaquo;</span></a>
+      <a href="#save" class="urgent"><span class="n">11</span><span><span class="t">Save offline</span><span class="d">Two minutes on Wi‑Fi before you fly</span></span><span class="chev">&rsaquo;</span></a>
+    </nav>
+
+    <p class="search-hint" style="margin-top:18px;">Looking for one thing? Tap the <b>magnifying glass</b> in the top right and search the whole guide — it works offline too.</p>
+  </section>
+
+  <section id="search">
+    <p class="eyebrow">Search</p>
+    <h2>Find it fast</h2>
+    <div class="search-field">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+      <input type="search" id="q" placeholder="wind, battery, slow motion, mic&hellip;" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-label="Search the guide">
+      <button class="search-clear" id="q-clear" type="button" aria-label="Clear search" hidden>&times;</button>
+    </div>
+    <div id="hits" class="hits" hidden></div>
+    <p class="search-empty" id="search-empty" hidden>Nothing matched that. Try a plainer word — <b>wind</b>, <b>dark</b>, <b>charge</b>, <b>sound</b>.</p>
+    <p class="search-hint" id="search-idle">Type anything — a problem, a word from the screen, a thing you want to film. Searches every page of the guide.</p>
+  </section>
+
+
+
+  <section id="body">
+    <p class="eyebrow">The camera</p>
+    <h2>Eight things on the body</h2>
+    <p>There are only two buttons. Everything else is the touchscreen.</p>
+
+    <figure class="stage">
+      <svg viewBox="0 0 360 300" role="img" aria-label="Diagram of the DJI Pocket 3 showing eight numbered parts: rotating screen, gimbal head, lens, joystick, record button, microphones, USB-C port and memory card slot">
+        <defs>
+          <marker id="tick" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <circle cx="3" cy="3" r="2" fill="currentColor"/>
+          </marker>
+        </defs>
+
+        <!-- handle -->
+        <rect x="130" y="96" width="76" height="186" rx="11" fill="none" stroke="currentColor" stroke-width="2"/>
+        <!-- gimbal arm + head -->
+        <rect x="150" y="34" width="36" height="62" rx="7" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="168" cy="62" r="18" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="168" cy="62" r="8.5" fill="currentColor" opacity="0.18"/>
+        <circle cx="168" cy="62" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <!-- screen -->
+        <rect x="145" y="112" width="46" height="64" rx="5" fill="currentColor" opacity="0.07"/>
+        <rect x="145" y="112" width="46" height="64" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <!-- rotation arc -->
+        <path d="M200 118 a30 30 0 0 1 8 26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <polygon points="208,150 204,140 212,141" fill="currentColor"/>
+        <!-- joystick -->
+        <circle cx="152" cy="200" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="152" cy="200" r="2.6" fill="currentColor"/>
+        <!-- record button -->
+        <circle cx="184" cy="200" r="8" fill="none" stroke="#C0392B" stroke-width="2"/>
+        <circle cx="184" cy="200" r="3.6" fill="#C0392B"/>
+        <!-- mic holes -->
+        <circle cx="160" cy="226" r="1.8" fill="currentColor"/>
+        <circle cx="168" cy="226" r="1.8" fill="currentColor"/>
+        <circle cx="176" cy="226" r="1.8" fill="currentColor"/>
+        <!-- usb-c -->
+        <rect x="156" y="270" width="24" height="6" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <!-- card slot (side) -->
+        <rect x="206" y="196" width="14" height="4" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+
+        <!-- leaders + pins : left side -->
+        <line x1="60" y1="62" x2="146" y2="62" stroke="currentColor" stroke-width="1" opacity="0.45"/>
+        <circle cx="48" cy="62" r="11" fill="currentColor"/>
+        <text x="48" y="66" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="var(--card, #fff)">2</text>
+
+        <line x1="60" y1="24" x2="168" y2="24" stroke="currentColor" stroke-width="1" opacity="0.45"/>
+        <line x1="168" y1="24" x2="168" y2="42" stroke="currentColor" stroke-width="1" opacity="0.45"/>
+        <circle cx="48" cy="24" r="11" fill="currentColor"/>
+        <text x="48" y="28" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="var(--card, #fff)">3</text>
+
+        <line x1="60" y1="144" x2="141" y2="144" stroke="currentColor" stroke-width="1" opacity="0.45"/>
+        <circle cx="48" cy="144" r="11" fill="currentColor"/>
+        <text x="48" y="148" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="var(--card, #fff)">1</text>
+
+        <line x1="60" y1="200" x2="142" y2="200" stroke="currentColor" stroke-width="1" opacity="0.45"/>
+        <circle cx="48" cy="200" r="11" fill="currentColor"/>
+        <text x="48" y="204" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="var(--card, #fff)">4</text>
+
+        <line x1="60" y1="252" x2="168" y2="252" stroke="currentColor" stroke-width="1" opacity="0.45"/>
+        <line x1="168" y1="252" x2="168" y2="232" stroke="currentColor" stroke-width="1" opacity="0.45"/>
+        <circle cx="48" cy="252" r="11" fill="currentColor"/>
+        <text x="48" y="256" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="var(--card, #fff)">6</text>
+
+        <!-- right side -->
+        <line x1="194" y1="200" x2="292" y2="200" stroke="currentColor" stroke-width="1" opacity="0.45"/>
+        <circle cx="308" cy="200" r="11" fill="#C0392B"/>
+        <text x="308" y="204" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="#fff">5</text>
+
+        <line x1="224" y1="240" x2="292" y2="240" stroke="currentColor" stroke-width="1" opacity="0.45"/>
+        <line x1="224" y1="240" x2="224" y2="200" stroke="currentColor" stroke-width="1" opacity="0.45"/>
+        <circle cx="308" cy="240" r="11" fill="currentColor"/>
+        <text x="308" y="244" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="var(--card, #fff)">8</text>
+
+        <line x1="184" y1="286" x2="292" y2="286" stroke="currentColor" stroke-width="1" opacity="0.45"/>
+        <line x1="184" y1="286" x2="184" y2="276" stroke="currentColor" stroke-width="1" opacity="0.45"/>
+        <circle cx="308" cy="286" r="11" fill="currentColor"/>
+        <text x="308" y="290" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="var(--card, #fff)">7</text>
+
+        <text x="228" y="126" font-family="monospace" font-size="10.5" fill="currentColor" opacity="0.75">twist</text>
+        <text x="228" y="139" font-family="monospace" font-size="10.5" fill="currentColor" opacity="0.75">to wake</text>
+      </svg>
+      <figcaption>The two buttons sit below the screen. The joystick is the one that moves; the red-ringed one records.</figcaption>
+    </figure>
+
+    <dl class="legend">
+      <div><dt>1</dt><dd><b>The rotating screen.</b> This is the power switch. Twist clockwise to turn on, counter-clockwise to turn off. Twisting it also flips the picture between wide (normal) and tall (for Instagram and TikTok).</dd></div>
+      <div><dt>2</dt><dd><b>The head.</b> It floats on motors — that's why your footage looks smooth. Never push it with your finger, and never hold it still while it's on.</dd></div>
+      <div><dt>3</dt><dd><b>The lens.</b> Fingerprints are the single most common reason holiday footage looks hazy. Wipe it on a clean soft t‑shirt before you shoot.</dd></div>
+      <div><dt>4</dt><dd><b>The joystick.</b> Nudge it to tilt and swivel the camera without moving your hand. Pressing it does useful things — see below.</dd></div>
+      <div><dt>5</dt><dd><b>The record button.</b> One press starts, one press stops. Holding it for a second shuts the camera down.</dd></div>
+      <div><dt>6</dt><dd><b>The microphones.</b> Right where your fingers naturally sit. Keep them clear, or everything sounds muffled.</dd></div>
+      <div><dt>7</dt><dd><b>USB‑C.</b> Charges from any phone charger, laptop or power bank. Same cable as most modern phones.</dd></div>
+      <div><dt>8</dt><dd><b>The memory card.</b> Already in, already empty. Don't take it out and don't format it — that's the whole trip gone.</dd></div>
+    </dl>
+
+    <h3>What the joystick presses do</h3>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Press</th><th>What happens</th><th>When you'd want it</th></tr></thead>
+        <tbody>
+          <tr><td class="v">Once</td><td>Stops it following a subject</td><td>It's locked onto the wrong person</td></tr>
+          <tr><td class="v">Twice</td><td>Snaps the camera back to level and straight ahead</td><td>Any time it's pointing somewhere odd</td></tr>
+          <tr><td class="v">3&times;</td><td>Spins the head round to face you</td><td>Talking to camera, group selfie</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>If you ever get confused about where the camera is pointing, <strong>double-press the joystick.</strong> It's the reset button for everything gimbal-related.</p>
+  </section>
+
+  <section id="menu">
+    <p class="eyebrow">The menu</p>
+    <h2>Four swipes and two taps</h2>
+    <p>That's the entire interface. You'll mostly use the taps.</p>
+
+    <figure class="stage">
+      <svg viewBox="0 0 360 260" role="img" aria-label="Diagram of the Pocket 3 touchscreen showing four swipe directions: down for settings, up for quality, left for advanced controls, right for playback">
+        <defs>
+          <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <polygon points="0,0 9,4.5 0,9" fill="currentColor"/>
+          </marker>
+        </defs>
+
+        <!-- screen -->
+        <rect x="140" y="70" width="80" height="118" rx="8" fill="currentColor" opacity="0.06"/>
+        <rect x="140" y="70" width="80" height="118" rx="8" fill="none" stroke="currentColor" stroke-width="2"/>
+        <text x="180" y="126" text-anchor="middle" font-family="monospace" font-size="11" fill="currentColor" opacity="0.6">screen</text>
+        <text x="180" y="140" text-anchor="middle" font-family="monospace" font-size="11" fill="currentColor" opacity="0.6">you see</text>
+
+        <!-- down arrow (from top) -->
+        <line x1="180" y1="20" x2="180" y2="62" stroke="currentColor" stroke-width="2" marker-end="url(#ar)"/>
+        <text x="180" y="14" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="currentColor">swipe down</text>
+        <text x="180" y="42" text-anchor="middle" font-family="monospace" font-size="10.5" fill="currentColor" opacity="0.65"> </text>
+
+        <!-- up arrow (from bottom) -->
+        <line x1="180" y1="238" x2="180" y2="196" stroke="currentColor" stroke-width="2" marker-end="url(#ar)"/>
+        <text x="180" y="254" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="currentColor">swipe up</text>
+
+        <!-- left arrow -->
+        <line x1="132" y1="129" x2="42" y2="129" stroke="currentColor" stroke-width="2" marker-end="url(#ar)"/>
+        <text x="42" y="114" text-anchor="start" font-family="monospace" font-size="12" font-weight="600" fill="currentColor">swipe left</text>
+
+        <!-- right arrow -->
+        <line x1="228" y1="129" x2="318" y2="129" stroke="currentColor" stroke-width="2" marker-end="url(#ar)"/>
+        <text x="318" y="114" text-anchor="end" font-family="monospace" font-size="12" font-weight="600" fill="currentColor">swipe right</text>
+
+        <!-- labels -->
+        <text x="180" y="40" text-anchor="middle" font-family="monospace" font-size="10.5" fill="currentColor" opacity="0.7">brightness, volume, off</text>
+        <text x="180" y="222" text-anchor="middle" font-family="monospace" font-size="10.5" fill="currentColor" opacity="0.7">quality &amp; slow motion</text>
+        <text x="42" y="150" text-anchor="start" font-family="monospace" font-size="10.5" fill="currentColor" opacity="0.7">advanced</text>
+        <text x="42" y="163" text-anchor="start" font-family="monospace" font-size="10.5" fill="currentColor" opacity="0.7">(leave alone)</text>
+        <text x="318" y="150" text-anchor="end" font-family="monospace" font-size="10.5" fill="currentColor" opacity="0.7">watch what</text>
+        <text x="318" y="163" text-anchor="end" font-family="monospace" font-size="10.5" fill="currentColor" opacity="0.7">you shot</text>
+      </svg>
+      <figcaption>Swipe from the edge of the little screen in the direction shown. Swipe back the other way to get out of anything.</figcaption>
+    </figure>
+
+    <h3>The two taps that actually matter</h3>
+    <ul class="rules">
+      <li><strong>Tap once on a face or an object.</strong> The camera focuses there and sets the brightness for it. Use this constantly — if someone looks like a dark silhouette against a bright sky, tap their face and they'll brighten up.</li>
+      <li><strong>Double-tap a person.</strong> The camera locks onto them and follows them around the frame by itself. Brilliant for someone walking ahead of you, dancing, or riding a horse. Single-press the joystick to let go.</li>
+    </ul>
+
+    <div class="note">
+      <span class="note-label">Getting back to normal</span>
+      <p>Lost in a menu? Swipe back the way you came, or just twist the screen off and on again. You cannot break anything by pressing things — you can only change a setting, and the next section tells you which ones matter.</p>
+    </div>
+  </section>
+
+  <section id="settings">
+    <p class="eyebrow">Settings</p>
+    <h2>Already done. Here's what's set and why.</h2>
+    <p>Caleb set the camera up before handing it over. You do not need to touch any of this — it's here so you know what you're working with.</p>
+
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Setting</th><th>It's on</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Quality</td><td class="v">4K / 30</td><td>Sharp enough for anything, half the file size of higher frame rates</td></tr>
+          <tr><td>Shape</td><td class="v">Wide (16:9)</td><td>Normal video shape. Twist the screen when you want tall.</td></tr>
+          <tr><td>Colour</td><td class="v">Normal</td><td>Looks right straight off the camera, no editing needed</td></tr>
+          <tr><td>Brightness</td><td class="v">Auto</td><td>Handles going from a dark bar to bright street by itself</td></tr>
+          <tr><td>Head</td><td class="v">Follow</td><td>Smoothly follows where you point without feeling sticky</td></tr>
+          <tr><td>Wind noise</td><td class="v">On</td><td>Argentina is windy. This saves your audio.</td></tr>
+          <tr><td>Grid lines</td><td class="v">On</td><td>The faint lines help you keep horizons level</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Three changes worth making</h3>
+    <p>These are the only ones worth learning. Each one is reversible in a few seconds.</p>
+
+    <div class="recipes">
+      <div class="recipe">
+        <h3><span class="num">A</span> Shooting for Instagram or TikTok</h3>
+        <p>Twist the screen counter-clockwise until the picture goes tall. Shoot vertical properly rather than cropping a wide shot later — it looks better and you keep all the detail.</p>
+        <p class="spec">twist screen anticlockwise &rarr; picture goes tall &rarr; twist back for normal</p>
+      </div>
+      <div class="recipe">
+        <h3><span class="num">B</span> Slow motion</h3>
+        <p>Swipe up, choose <strong>Slow Motion</strong>. Worth it for waterfalls, street performers, horses, someone jumping into water, wine being poured. Not worth it for anything else — there's no sound in slow motion and the files are huge.</p>
+        <p class="spec">swipe up &rarr; Slow Motion &rarr; shoot 5&ndash;8 seconds &rarr; swipe up &rarr; Video to go back</p>
+      </div>
+      <div class="recipe">
+        <h3><span class="num">C</span> Time-lapse of clouds or a busy street</h3>
+        <p>Swipe up and pick <strong>Timelapse</strong>. Prop the camera somewhere solid, press record, and leave it for at least five minutes. Clouds over the Andes and a plaza at dusk both look great. It eats battery, so don't do it on a day you'll need the camera later.</p>
+        <p class="spec">swipe up &rarr; Timelapse &rarr; prop it up, don't hold it &rarr; 5&ndash;10 min minimum</p>
+      </div>
+    </div>
+
+    <div class="note warn">
+      <span class="note-label">One setting to leave completely alone</span>
+      <p>If you find anything called <strong>D‑Log M</strong> or <strong>10‑bit</strong>, back out of it. It makes footage look flat and grey and needs editing software to fix. The Normal setting is already right.</p>
+    </div>
+  </section>
+
+  <section id="shots">
+    <p class="eyebrow">Shooting</p>
+    <h2>Ten shots that will carry the week</h2>
+    <p>Get two or three of these each day and you'll come home with something worth watching. Every one of them is: press record, do the thing for ten seconds, press stop.</p>
+
+    <div class="recipes">
+
+      <div class="recipe">
+        <h3><span class="num">01</span> The walk-in</h3>
+        <p>Hold the camera at chest height and walk into a place — through a doorway, into a market, down a street. Walk slowly and normally. The camera does the rest.</p>
+        <p class="spec">chest height &middot; walk at half your normal speed &middot; 10&ndash;15 sec</p>
+      </div>
+
+      <div class="recipe">
+        <h3><span class="num">02</span> The reveal</h3>
+        <p>Start pointed at something close and small — a glass, a boot, a hand on a railing — then slowly lift the camera to show the view behind it. Two seconds on the detail, then move.</p>
+        <p class="spec">detail for 2 sec &middot; lift slowly over 4 sec &middot; hold the view 5 sec</p>
+      </div>
+
+      <div class="recipe">
+        <h3><span class="num">03</span> The follow</h3>
+        <p>Double-tap whoever is walking ahead of you. The camera locks on and keeps them in frame while you walk behind. This is the shot that looks most like it was filmed by someone who knows what they're doing.</p>
+        <p class="spec">double-tap the person &middot; walk behind them &middot; joystick press once to release</p>
+      </div>
+
+      <div class="recipe">
+        <h3><span class="num">04</span> The table</h3>
+        <p>Food, wine, coffee, hands. Put the camera low and close — almost on the table — and drift it slowly past the plate or glass. Get close enough that it feels slightly too close.</p>
+        <p class="spec">low &amp; close &middot; drift sideways, don't zoom &middot; tap the plate to focus</p>
+      </div>
+
+      <div class="recipe">
+        <h3><span class="num">05</span> The street, held low</h3>
+        <p>Down at waist height, camera pointing forward, just walking. People behave normally because it doesn't look like filming. Great in Buenos Aires.</p>
+        <p class="spec">waist height &middot; keep walking &middot; 15 sec &middot; don't stop to check the screen</p>
+      </div>
+
+      <div class="recipe">
+        <h3><span class="num">06</span> Talking to camera</h3>
+        <p>Triple-press the joystick so it faces you, hold it at arm's length slightly above your eye line, and talk. Clip the mic on if there's any wind or noise. Say where you are and what just happened — future-you will be glad.</p>
+        <p class="spec">joystick &times;3 &middot; arm's length, slightly above eyes &middot; mic on if outdoors</p>
+      </div>
+
+      <div class="recipe">
+        <h3><span class="num">07</span> The big landscape</h3>
+        <p>For mountains, steppe, vineyards. Keep the horizon straight using the grid lines, put it near the top or bottom of the frame rather than the middle, and hold completely still for fifteen seconds. Resist the urge to pan around.</p>
+        <p class="spec">horizon on a grid line &middot; absolutely still &middot; 15 sec &middot; no panning</p>
+      </div>
+
+      <div class="recipe">
+        <h3><span class="num">08</span> The slow pan</h3>
+        <p>If you must move across a view, use the joystick rather than turning your body — nudge it gently to one side and let it drift. Far smoother than anything you can do by hand.</p>
+        <p class="spec">joystick nudged and held &middot; one direction only &middot; 8&ndash;10 sec</p>
+      </div>
+
+      <div class="recipe">
+        <h3><span class="num">09</span> Night and neon</h3>
+        <p>The camera is genuinely good in the dark. Two rules: hold it dead still (any movement smears), and find a light source on people's faces — a shop window, a candle, a streetlight — rather than shooting against one.</p>
+        <p class="spec">still as possible &middot; light in front of faces, not behind &middot; tap the face to brighten</p>
+      </div>
+
+      <div class="recipe">
+        <h3><span class="num">10</span> The one you'd forget</h3>
+        <p>The bus window, the dog in the street, a hand pouring, feet on gravel, a menu board. Ten seconds each. These are the shots that make everything else feel like a place instead of a postcard.</p>
+        <p class="spec">whatever's in front of you &middot; 10 sec &middot; shoot more of these than you think</p>
+      </div>
+
+    </div>
+
+    <figure class="stage">
+      <svg viewBox="0 0 360 150" role="img" aria-label="Two framing comparisons: on the left too much empty space above the head, on the right the eyes sit near the top third line">
+        <!-- left frame : wrong -->
+        <rect x="14" y="26" width="150" height="86" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+        <line x1="14" y1="54.7" x2="164" y2="54.7" stroke="currentColor" stroke-width="0.75" stroke-dasharray="3 3" opacity="0.4"/>
+        <line x1="14" y1="83.3" x2="164" y2="83.3" stroke="currentColor" stroke-width="0.75" stroke-dasharray="3 3" opacity="0.4"/>
+        <circle cx="89" cy="83" r="12" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M71 112 q18 -18 36 0" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <text x="89" y="18" text-anchor="middle" font-family="monospace" font-size="11" font-weight="600" fill="#C0392B">too much sky</text>
+        <text x="89" y="128" text-anchor="middle" font-family="monospace" font-size="10.5" fill="currentColor" opacity="0.7">head floating low</text>
+
+        <!-- right frame : right -->
+        <rect x="196" y="26" width="150" height="86" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="196" y1="54.7" x2="346" y2="54.7" stroke="currentColor" stroke-width="0.75" stroke-dasharray="3 3" opacity="0.55"/>
+        <line x1="196" y1="83.3" x2="346" y2="83.3" stroke="currentColor" stroke-width="0.75" stroke-dasharray="3 3" opacity="0.4"/>
+        <circle cx="271" cy="56" r="14" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="266" cy="54" r="1.6" fill="currentColor"/>
+        <circle cx="276" cy="54" r="1.6" fill="currentColor"/>
+        <path d="M247 112 q24 -40 48 0" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <text x="271" y="18" text-anchor="middle" font-family="monospace" font-size="11" font-weight="600" fill="currentColor">eyes on the line</text>
+        <text x="271" y="128" text-anchor="middle" font-family="monospace" font-size="10.5" fill="currentColor" opacity="0.7">fills the frame</text>
+      </svg>
+      <figcaption>The grid lines are on for a reason: put eyes near the upper line and horizons on one of the lines, never dead centre.</figcaption>
+    </figure>
+  </section>
+
+  <section id="rules">
+    <p class="eyebrow">Habits</p>
+    <h2>The eight things beginners get wrong</h2>
+    <p>Fixing these matters more than any setting on the camera.</p>
+    <ul class="rules">
+      <li><strong>Hold every shot for ten seconds.</strong> Count it out loud in your head. Short clips are unusable; you can always cut a long one down.</li>
+      <li><strong>Move your feet, not your wrist.</strong> Flicking the camera around ruins a shot faster than anything else.</li>
+      <li><strong>Give it two seconds before and after.</strong> Press record, wait, then start moving. Stop moving, wait, then press stop.</li>
+      <li class="no"><strong>Don't zoom.</strong> It's a fake zoom that throws away detail. Walk closer instead.</li>
+      <li class="no"><strong>Don't cover the microphones</strong> with your fingers, and check the lens isn't under your thumb before every shot.</li>
+      <li><strong>Check the red border.</strong> The classic disaster is filming a whole afternoon while the camera was off, and pressing record while it was on. Glance at the timer.</li>
+      <li><strong>Turn your back to the wind.</strong> Or get very close to whoever is talking. Wind is the number one thing that makes travel footage unwatchable.</li>
+      <li><strong>Shoot more than feels sensible.</strong> A week is maybe 200 clips. You'll use 30. That's a normal, healthy ratio.</li>
+    </ul>
+  </section>
+
+  <section id="mic">
+    <p class="eyebrow">Sound</p>
+    <h2>The wireless mics</h2>
+    <p>You have two little clip-on microphones and a charging case. The camera's own mics are fine for general noise and atmosphere; the clip-on is for when someone is <em>talking</em> and it matters — an interview, a piece to camera, a guide explaining something, anything outdoors with wind.</p>
+
+    <h3>Connecting one — first time only</h3>
+    <ol class="steps">
+      <li><p>Turn the camera on.</p></li>
+      <li><p><strong>Swipe down</strong> on the camera screen and find <strong>Wireless Mic</strong>. Tap <span class="key">TX1</span>.</p></li>
+      <li><p>On the little mic, <strong>hold the link button</strong> — the one marked with a chain symbol, just above the power button — <strong>for about three seconds</strong>, until its light flashes blue and green.</p></li>
+      <li><p>The camera says it's connected. Done — it will reconnect on its own from now on. For the second mic, repeat with <span class="key">TX2</span>.</p></li>
+    </ol>
+
+    <figure class="stage">
+      <svg viewBox="0 0 360 160" role="img" aria-label="Where to clip the microphone: about a hand's width below the chin on the outside of clothing, not underneath a jacket">
+        <!-- good -->
+        <path d="M60 148 q0 -52 34 -60 M128 148 q0 -52 -34 -60" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <circle cx="94" cy="58" r="20" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <line x1="94" y1="78" x2="94" y2="92" stroke="currentColor" stroke-width="1.6"/>
+        <!-- mic on chest, good spot -->
+        <rect x="86" y="100" width="17" height="13" rx="3" fill="currentColor"/>
+        <!-- hand-width measure -->
+        <line x1="128" y1="90" x2="128" y2="106" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+        <line x1="124" y1="90" x2="132" y2="90" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+        <line x1="124" y1="106" x2="132" y2="106" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+        <text x="138" y="101" font-family="monospace" font-size="10.5" fill="currentColor" opacity="0.75">a hand's width</text>
+        <text x="94" y="20" text-anchor="middle" font-family="monospace" font-size="11" font-weight="600" fill="currentColor">on the outside</text>
+
+        <!-- bad -->
+        <path d="M244 148 q0 -52 34 -60 M312 148 q0 -52 -34 -60" fill="none" stroke="currentColor" stroke-width="1.6" opacity="0.45"/>
+        <circle cx="278" cy="58" r="20" fill="none" stroke="currentColor" stroke-width="1.6" opacity="0.45"/>
+        <line x1="278" y1="78" x2="278" y2="92" stroke="currentColor" stroke-width="1.6" opacity="0.45"/>
+        <!-- jacket over -->
+        <path d="M252 96 q26 14 52 0 l0 40 q-26 10 -52 0 z" fill="currentColor" opacity="0.13"/>
+        <path d="M252 96 q26 14 52 0 l0 40 q-26 10 -52 0 z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <line x1="256" y1="98" x2="300" y2="134" stroke="#C0392B" stroke-width="2.4"/>
+        <line x1="300" y1="98" x2="256" y2="134" stroke="#C0392B" stroke-width="2.4"/>
+        <text x="278" y="20" text-anchor="middle" font-family="monospace" font-size="11" font-weight="600" fill="#C0392B">not under a coat</text>
+      </svg>
+      <figcaption>A hand's width below the chin, clipped to the outermost layer. Under a jacket it sounds like someone talking in a duvet.</figcaption>
+    </figure>
+
+    <h3>Using them</h3>
+    <ul class="rules">
+      <li><strong>Clip it high.</strong> Collar, lapel, the neckline of a t‑shirt — about a hand's width below the chin.</li>
+      <li><strong>Outdoors, put the furry windscreen on it.</strong> It looks silly and it is the difference between usable and unusable.</li>
+      <li><strong>Two mics = two people.</strong> Use TX1 and TX2 for a conversation.</li>
+      <li><strong>Press the mic's power button once to toggle noise cancelling.</strong> Good in a loud street, but if a voice starts sounding thin or underwater, turn it back off.</li>
+      <li><strong>Charge them in the case.</strong> They live in it, they charge in it, and the case charges over USB‑C. They last a long time — days, not hours.</li>
+      <li class="no"><strong>Don't bury it under clothing</strong> or let a necklace, zip or seatbelt rub against it.</li>
+    </ul>
+
+    <div class="note">
+      <span class="note-label">Quick check</span>
+      <p>Before an important bit of talking: record five seconds, swipe right to play it back, and listen. Five seconds now beats discovering it in Miami.</p>
+    </div>
+  </section>
+
+  <section id="power">
+    <p class="eyebrow">Logistics</p>
+    <h2>Battery, card, plugs</h2>
+
+    <h3>Battery</h3>
+    <p>Expect somewhere around <strong>an hour and a half to two hours of actual recording</strong> on a full charge — that's a full day of normal travel filming, since you're shooting ten seconds at a time, not continuously. It charges fast: fifteen or twenty minutes on a decent charger gets you most of the way back.</p>
+    <ul class="rules">
+      <li><strong>Top it up over lunch.</strong> Any power bank, any phone charger, same USB‑C cable as your phone.</li>
+      <li><strong>Cold kills it.</strong> In Patagonia or anywhere high, keep the camera in an inside jacket pocket between shots, not an outside one. The battery indicator will lie to you in the cold and then recover once it warms up.</li>
+      <li><strong>Turn it off between shots</strong> if you're stretching a day — the screen is what drains it.</li>
+    </ul>
+
+    <h3>The memory card</h3>
+    <p>It's already in the camera and empty. Roughly: <strong>a minute of filming is a bit under a gigabyte</strong>, so there's room for hours — far more than a week of sensible shooting. To check what's left, swipe down and look at the storage number.</p>
+    <div class="note stop">
+      <span class="note-label">The one unrecoverable mistake</span>
+      <p>Never choose <strong>Format</strong>, and don't delete clips to make space. If you somehow do run out, tell Caleb and he'll sort it remotely — there's a spare card and it's a thirty-second swap.</p>
+    </div>
+
+    <h3>Argentina specifics</h3>
+    <ul class="rules">
+      <li><strong>Plugs are different.</strong> Argentina uses a slanted three-pin socket. Bring a travel adapter — the charger itself handles the voltage fine, you just need the shape to fit.</li>
+      <li><strong>The sun is strong.</strong> Don't leave the camera on a dashboard or a sunny table. If it gets hot it'll warn you; move it into shade for a few minutes and it's fine.</li>
+      <li><strong>Set the time zone</strong> if the camera asks — Argentina is UTC−3 — so the clips are stamped correctly.</li>
+      <li class="no"><strong>Don't check it into hold luggage.</strong> Carry-on only, with the cover on.</li>
+    </ul>
+  </section>
+
+  <section id="fix">
+    <p class="eyebrow">Troubleshooting</p>
+    <h2>If something goes wrong</h2>
+    <p>Almost everything here is fixed by twisting the screen off and back on.</p>
+
+    <details>
+      <summary>It won't turn on</summary>
+      <div class="details-body">
+        <p>It's flat. Plug it into anything USB‑C and give it fifteen minutes before deciding it's broken — a fully drained battery takes a moment to show any sign of life.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>The head is tilted, drifting or pointing at the floor</summary>
+      <div class="details-body">
+        <p>First: <strong>double-press the joystick</strong>. That re-centres it and solves it nine times out of ten.</p>
+        <p>If it's still crooked, twist the screen off, put the cover on, wait ten seconds, take the cover off and twist it back on — that makes it re-level itself. If it's still wrong, swipe down, find the gimbal settings and run the auto-calibration.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>The screen has frozen</summary>
+      <div class="details-body">
+        <p>Hold the record button down for a few seconds to force it off, then twist the screen to start it again.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>The footage looks too dark or blown out</summary>
+      <div class="details-body">
+        <p>Tap on the thing you care about — a face, the food, the mountain. The camera re-does the brightness for that spot. If you're shooting someone against a bright sky and they're a silhouette, tapping their face fixes it instantly.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Everything looks slightly hazy or soft</summary>
+      <div class="details-body">
+        <p>Fingerprint on the lens. Breathe on it and wipe with a clean soft cloth or t‑shirt. Not your sleeve if you've been near sand.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>The sound is muffled, or the mic isn't working</summary>
+      <div class="details-body">
+        <p>Check your fingers aren't over the microphone holes on the camera. If you're using a clip-on: is it switched on, is it actually connected (swipe down &rarr; Wireless Mic), and is it buried under a coat?</p>
+        <p>If a voice sounds thin or underwater, press the mic's power button once to turn noise cancelling off.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>It says the card is full or missing</summary>
+      <div class="details-body">
+        <p>Turn it off and on first. If it still says missing, there's a spare card in the case — but message Caleb before you swap anything, and <strong>do not format</strong> whatever is in there.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>It got wet or sandy</summary>
+      <div class="details-body">
+        <p>Turn it off immediately, don't try to dry it with heat, put the cover on and message Caleb. Do not keep shooting to see if it still works.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="kit">
+    <p class="eyebrow">Handover</p>
+    <h2>Checked out</h2>
+    <p>Everything here belongs to Caleb and is going home with you and coming back with you. Run through it every time you pack up — at the hotel, leaving a restaurant, getting off a bus. Your phone remembers the ticks.</p>
+
+    <div class="inv-head">
+      <span class="inv-count" id="inv-count">0 of 7 accounted for</span>
+      <button class="inv-reset" id="inv-reset" type="button">Uncheck all</button>
+    </div>
+
+    <ul class="inv">
+      <li><label><input type="checkbox" id="k-camera"><span class="thumb">CAM</span><span class="meta"><span class="nm">Osmo Pocket 3</span><span class="no">The camera itself, cover on</span></span></label></li>
+      <li><label><input type="checkbox" id="k-cover"><span class="thumb">CAP</span><span class="meta"><span class="nm">Protective cover</span><span class="no">Locks the head still in your bag</span></span></label></li>
+      <li><label><input type="checkbox" id="k-mics"><span class="thumb">MIC</span><span class="meta"><span class="nm">Two Mic Mini transmitters</span><span class="no">The clip-on microphones</span></span></label></li>
+      <li><label><input type="checkbox" id="k-case"><span class="thumb">CASE</span><span class="meta"><span class="nm">Mic charging case</span><span class="no">Where the mics live and charge</span></span></label></li>
+      <li><label><input type="checkbox" id="k-fluff"><span class="thumb">WIND</span><span class="meta"><span class="nm">Furry windscreens</span><span class="no">The small fuzzy covers for the mics</span></span></label></li>
+      <li><label><input type="checkbox" id="k-cable"><span class="thumb">USB</span><span class="meta"><span class="nm">USB‑C cable</span><span class="no">Charges camera and mic case</span></span></label></li>
+      <li><label><input type="checkbox" id="k-strap"><span class="thumb">STRAP</span><span class="meta"><span class="nm">Wrist strap</span><span class="no">Worth actually using in crowds</span></span></label></li>
+    </ul>
+
+    <div class="note">
+      <span class="note-label">Not on this list</span>
+      <p>The plug adapter for Argentina is yours to bring — the charger handles the voltage, you just need the shape to fit.</p>
+    </div>
+
+    <h3>Two favours</h3>
+    <ul class="rules">
+      <li><strong>Don't delete anything.</strong> Even the bad clips. Hand the card back as it is.</li>
+      <li><strong>Cover on, in the bag, every time.</strong> That single habit is what keeps the moving head alive.</li>
+    </ul>
+  </section>
+
+  <section id="refs">
+    <p class="eyebrow">If you want more</p>
+    <h2>References</h2>
+    <p>These need signal — they won't open offline, so don't rely on them out in the field.</p>
+    <ul class="plain">
+      <li><a href="https://support.dji.com/help/content?customId=en-us03400009024&amp;spaceId=34">DJI's own beginner's guide to the Pocket 3</a></li>
+      <li><a href="https://www.dji.com/osmo-pocket-3/video">DJI's short video tutorials</a> — two minutes each, worth one sitting on the plane</li>
+      <li><a href="https://www.dji.com/osmo-pocket-3/specs">Full specifications</a></li>
+      <li><a href="https://www.dji.com/mic-mini/faq">DJI Mic Mini FAQ</a> — for anything mic-related</li>
+    </ul>
+  </section>
+
+  <section id="save">
+    <p class="eyebrow">Before you fly</p>
+    <h2>Save this page while you still have Wi‑Fi</h2>
+    <p>This whole guide works with no signal — but only after your phone has loaded it once and kept a copy. Do this at the airport, not in Patagonia.</p>
+
+    <div class="note" id="save-done" hidden>
+      <span class="note-label">You're already set</span>
+      <p>You're reading the saved copy. It works in airplane mode, on a bus, at the bottom of a valley — no signal needed. Nothing else to do.</p>
+    </div>
+
+    <ol class="steps" id="save-web">
+      <li>
+        <p><strong>Open this page in Safari</strong> on Wi‑Fi and wait a few seconds.</p>
+        <p class="sub">The badge at the top right should turn green and say <span class="mono">saved offline</span>.</p>
+      </li>
+      <li>
+        <p><strong>Tap the Share button</strong> (the square with the arrow), scroll down, tap <span class="key">Add to Home Screen</span>, then <span class="key">Add</span>.</p>
+      </li>
+      <li>
+        <p><strong>Open it from your home screen once, still on Wi‑Fi.</strong></p>
+        <p class="sub">That is what makes it work in airplane mode. Test it: turn on airplane mode and open it again. If you can read this sentence, you're set.</p>
+      </li>
+    </ol>
+    <div class="note warn" id="save-fallback">
+      <span class="note-label">If the badge never turns green</span>
+      <p>Use the file Caleb sent you instead — save it into your <strong>Files</strong> app and open it from there. Same guide, no internet needed, ever. There's a PDF too.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Made for one borrowed camera and one week in Argentina. Anything not covered here, message Caleb — it's almost certainly a two-line answer.</p>
+    <p>Have a brilliant trip. Shoot the boring stuff.</p>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    'use strict';
+
+    /* --- iOS home-screen metadata (injected because the page head is generated) --- */
+    try {
+      var head = document.head;
+      [['apple-mobile-web-app-capable', 'yes'],
+       ['apple-mobile-web-app-status-bar-style', 'default'],
+       ['apple-mobile-web-app-title', 'Pocket 3'],
+       ['theme-color', '#F4F5F2']].forEach(function (pair) {
+        if (head.querySelector('meta[name="' + pair[0] + '"]')) return;
+        var m = document.createElement('meta');
+        m.name = pair[0];
+        m.content = pair[1];
+        head.appendChild(m);
+      });
+    } catch (e) { /* non-fatal */ }
+
+    /* --- checklist memory (per-phone, best effort) --- */
+    var boxes = document.querySelectorAll('ul.check input[type="checkbox"], ul.inv input[type="checkbox"]');
+    var invBoxes = document.querySelectorAll('ul.inv input[type="checkbox"]');
+    var counter = document.getElementById('inv-count');
+    var resetBtn = document.getElementById('inv-reset');
+
+    function tally() {
+      if (!counter || !invBoxes.length) return;
+      var done = 0;
+      Array.prototype.forEach.call(invBoxes, function (b) { if (b.checked) done++; });
+      counter.textContent = done + ' of ' + invBoxes.length + ' accounted for';
+      counter.setAttribute('data-all', done === invBoxes.length ? '1' : '0');
+    }
+
+    Array.prototype.forEach.call(boxes, function (box) {
+      try {
+        if (localStorage.getItem('p3:' + box.id) === '1') box.checked = true;
+      } catch (e) { /* storage unavailable */ }
+      box.addEventListener('change', function () {
+        try {
+          if (box.checked) localStorage.setItem('p3:' + box.id, '1');
+          else localStorage.removeItem('p3:' + box.id);
+        } catch (e) { /* storage unavailable */ }
+        tally();
+      });
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function () {
+        Array.prototype.forEach.call(invBoxes, function (b) {
+          b.checked = false;
+          try { localStorage.removeItem('p3:' + b.id); } catch (e) { /* ignore */ }
+        });
+        tally();
+      });
+    }
+
+    tally();
+
+    /* --- offline status --- */
+    var badge = document.getElementById('offline-badge');
+    var CACHE = 'pocket3-argentina-v1';
+
+    var note = document.getElementById('offline-note');
+
+    function setBadge(state, text, noteText) {
+      if (badge) {
+        badge.setAttribute('data-state', state);
+        badge.textContent = text;
+      }
+      if (note && noteText) note.textContent = noteText;
+    }
+
+    function notSaved() {
+      setBadge('warn', 'online only', 'open the file Caleb sent to use this without signal');
+    }
+
+    /* Already a local copy? Then there is nothing to save. */
+    var isLocal = location.protocol === 'file:' || location.protocol === 'content:';
+    if (isLocal) {
+      setBadge('ready', 'offline copy', 'this copy works with no signal at all');
+      var done = document.getElementById('save-done');
+      var web = document.getElementById('save-web');
+      var fb = document.getElementById('save-fallback');
+      if (done) done.hidden = false;
+      if (web) web.hidden = true;
+      if (fb) fb.hidden = true;
+      return;
+    }
+
+    async function verify() {
+      try {
+        var cache = await caches.open(CACHE);
+        try { await cache.add(new Request(location.href, { cache: 'reload' })); } catch (e) { /* may already be there */ }
+        var hit = await cache.match(location.href, { ignoreSearch: true })
+               || await caches.match('./index.html', { ignoreSearch: true })
+               || await caches.match('./', { ignoreSearch: true });
+        if (hit) setBadge('ready', 'saved offline', 'saved to this phone — try it in airplane mode');
+        else notSaved();
+      } catch (e) {
+        notSaved();
+      }
+    }
+
+    if ('serviceWorker' in navigator && 'caches' in window) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js', { scope: './' })
+          .then(function () { return navigator.serviceWorker.ready; })
+          .then(verify)
+          .catch(function () { notSaved(); });
+      });
+      setTimeout(function () {
+        if (badge && badge.getAttribute('data-state') === 'checking') notSaved();
+      }, 8000);
+    } else {
+      notSaved();
+    }
+  })();
+</script>
+
+<script>
+  /* ---- routing + search : one file, many pages ---- */
+  (function () {
+    'use strict';
+
+    var ORDER = ['home', 'body', 'menu', 'settings', 'shots', 'rules', 'mic', 'power', 'fix', 'kit', 'refs', 'save'];
+    var PAGED = ORDER.slice(1);   // home opens the guide, so it gets no previous/next
+    var INDEXED = ORDER;          // but its sixty-second content must be searchable
+    var TITLES = {
+      home: 'The sixty-second version',
+      search: 'Search',
+      save: 'Save offline',
+      body: 'The camera itself',
+      menu: 'The menu',
+      settings: 'Settings',
+      shots: 'Ten shots',
+      rules: 'Eight habits',
+      mic: 'The wireless mics',
+      power: 'Battery, card, plugs',
+      fix: 'If something goes wrong',
+      kit: 'Checked out',
+      refs: 'References'
+    };
+
+    var wrap = document.querySelector('.wrap');
+    var tabsEl = document.getElementById('tabs');
+    var btnSearch = document.getElementById('nav-search');
+    var input = document.getElementById('q');
+    var clearBtn = document.getElementById('q-clear');
+    var hitsEl = document.getElementById('hits');
+    var emptyEl = document.getElementById('search-empty');
+    var idleEl = document.getElementById('search-idle');
+
+    var internalNavs = 0;
+    var pendingTerms = null;
+
+    /* ---------- build the pager on each content page ---------- */
+    PAGED.forEach(function (id, i) {
+      var sec = document.getElementById(id);
+      if (!sec) return;
+      var prev = PAGED[i - 1];
+      var next = PAGED[i + 1];
+      var nav = document.createElement('nav');
+      nav.className = 'pager';
+      nav.setAttribute('aria-label', 'Previous and next section');
+      var html = '';
+      if (prev) html += '<a href="#' + prev + '"><span class="lab">Previous</span><span class="nm">' + TITLES[prev] + '</span></a>';
+      if (next) html += '<a href="#' + next + '" class="next"><span class="lab">Next</span><span class="nm">' + TITLES[next] + '</span></a>';
+      if (!prev) html = '<a href="#home"><span class="lab">Back to</span><span class="nm">Start</span></a>' + html;
+      if (!next) html += '<a href="#home" class="next"><span class="lab">Back to</span><span class="nm">Start</span></a>';
+      nav.innerHTML = html;
+      sec.appendChild(nav);
+    });
+
+    /* ---------- search index ---------- */
+    var SEL = 'h2,h3,p,li,dd,td,th,summary,figcaption';
+    var INDEX = [];
+
+    INDEXED.forEach(function (id) {
+      var sec = document.getElementById(id);
+      if (!sec) return;
+      var nodes = sec.querySelectorAll(SEL);
+      Array.prototype.forEach.call(nodes, function (el) {
+        // navigation and chrome are not content
+        if (el.closest('.pager, .menu, .menu-head, .mast, .status-line, .search-hint')) return;
+        // skip a block that wholly contains another indexed block
+        if (el.querySelector(SEL)) return;
+        var text = (el.textContent || '').replace(/\s+/g, ' ').trim();
+        if (text.length < 3) return;
+        INDEX.push({
+          sec: id,
+          title: TITLES[id],
+          text: text,
+          lower: text.toLowerCase(),
+          head: /^H[23]$/.test(el.tagName) || el.tagName === 'SUMMARY'
+        });
+      });
+    });
+
+    function esc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+    function terms(q) {
+      return q.toLowerCase().split(/\s+/).filter(function (t) { return t.length > 1; });
+    }
+
+    function snippet(entry, ts) {
+      var i = entry.lower.indexOf(ts[0]);
+      if (i < 0) i = 0;
+      var start = Math.max(0, i - 60);
+      var end = Math.min(entry.text.length, i + 110);
+      var piece = entry.text.slice(start, end);
+      if (start > 0) piece = '…' + piece;
+      if (end < entry.text.length) piece = piece + '…';
+      var out = piece.replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; });
+      ts.forEach(function (t) {
+        out = out.replace(new RegExp('(' + esc(t) + ')', 'gi'), '<mark>$1</mark>');
+      });
+      return out;
+    }
+
+    function runSearch(q) {
+      var ts = terms(q);
+      hitsEl.innerHTML = '';
+      if (!ts.length) {
+        hitsEl.hidden = true;
+        emptyEl.hidden = true;
+        idleEl.hidden = false;
+        return [];
+      }
+      idleEl.hidden = true;
+
+      var found = INDEX.filter(function (e) {
+        return ts.every(function (t) { return e.lower.indexOf(t) > -1; });
+      });
+
+      found.sort(function (a, b) {
+        if (a.head !== b.head) return a.head ? -1 : 1;
+        return ORDER.indexOf(a.sec) - ORDER.indexOf(b.sec);
+      });
+
+      found = found.slice(0, 30);
+
+      if (!found.length) {
+        hitsEl.hidden = true;
+        emptyEl.hidden = false;
+        return [];
+      }
+      emptyEl.hidden = true;
+      hitsEl.hidden = false;
+
+      found.forEach(function (e) {
+        var a = document.createElement('a');
+        a.href = '#' + e.sec;
+        a.innerHTML = '<span class="where">' + e.title + '</span><span class="snip">' + snippet(e, ts) + '</span>';
+        a.addEventListener('click', function () { pendingTerms = ts; });
+        hitsEl.appendChild(a);
+      });
+      return found;
+    }
+
+    /* ---------- highlighting on the destination page ---------- */
+    function clearMarks() {
+      var marks = wrap.querySelectorAll('mark[data-hit]');
+      Array.prototype.forEach.call(marks, function (m) {
+        var parent = m.parentNode;
+        if (!parent) return;
+        parent.replaceChild(document.createTextNode(m.textContent), m);
+        parent.normalize();
+      });
+    }
+
+    function highlight(sec, ts) {
+      if (!sec || !ts || !ts.length) return null;
+      var re = new RegExp('(' + ts.map(esc).join('|') + ')', 'gi');
+      var walker = document.createTreeWalker(sec, NodeFilter.SHOW_TEXT, {
+        acceptNode: function (node) {
+          var p = node.parentNode;
+          if (!p) return NodeFilter.FILTER_REJECT;
+          var tag = p.nodeName;
+          if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'MARK' || tag === 'TEXTAREA') return NodeFilter.FILTER_REJECT;
+          if (p.closest && p.closest('svg, .pager')) return NodeFilter.FILTER_REJECT;
+          if (!re.test(node.nodeValue)) { re.lastIndex = 0; return NodeFilter.FILTER_REJECT; }
+          re.lastIndex = 0;
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      });
+
+      var targets = [];
+      var n;
+      while ((n = walker.nextNode())) targets.push(n);
+
+      var first = null;
+      targets.forEach(function (node) {
+        var frag = document.createDocumentFragment();
+        var text = node.nodeValue;
+        var last = 0;
+        var m;
+        re.lastIndex = 0;
+        while ((m = re.exec(text)) !== null) {
+          if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+          var mk = document.createElement('mark');
+          mk.setAttribute('data-hit', '1');
+          mk.textContent = m[0];
+          frag.appendChild(mk);
+          if (!first) first = mk;
+          last = m.index + m[0].length;
+          if (m[0].length === 0) re.lastIndex++;
+        }
+        if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+        if (node.parentNode) node.parentNode.replaceChild(frag, node);
+      });
+      return first;
+    }
+
+    /* ---------- navigation ---------- */
+    function show(id) {
+      if (id !== 'search') clearMarks();
+
+      var target = document.getElementById(id);
+      if (!target || (id !== 'home' && id !== 'search' && ORDER.indexOf(id) === -1)) {
+        id = 'home';
+        target = document.getElementById('home');
+      }
+
+      Array.prototype.forEach.call(wrap.children, function (el) {
+        if (el.tagName === 'SECTION') el.classList.toggle('is-active', el === target);
+      });
+
+      document.body.setAttribute('data-page', id);
+
+      // mark the live tab and bring it into view in the strip
+      var active = null;
+      Array.prototype.forEach.call(tabsEl.querySelectorAll('a'), function (a) {
+        var on = a.getAttribute('href') === '#' + id;
+        if (on) { a.setAttribute('aria-current', 'page'); active = a; }
+        else a.removeAttribute('aria-current');
+      });
+      if (btnSearch) {
+        if (id === 'search') btnSearch.setAttribute('aria-current', 'page');
+        else btnSearch.removeAttribute('aria-current');
+      }
+      if (active) {
+        var left = active.offsetLeft - (tabsEl.clientWidth - active.offsetWidth) / 2;
+        try { tabsEl.scrollTo({ left: left, behavior: 'smooth' }); }
+        catch (e) { tabsEl.scrollLeft = left; }
+      }
+
+      // open any collapsed detail that contains a search hit
+      var marked = null;
+      if (pendingTerms && ORDER.indexOf(id) > -1) {
+        marked = highlight(target, pendingTerms);
+        if (marked) {
+          var det = marked.closest ? marked.closest('details') : null;
+          if (det) det.open = true;
+        }
+        pendingTerms = null;
+      }
+
+      if (marked) {
+        marked.scrollIntoView({ block: 'center' });
+      } else {
+        window.scrollTo(0, 0);
+      }
+
+      if (id === 'search' && input) {
+        try { input.focus({ preventScroll: true }); } catch (e) { input.focus(); }
+      }
+    }
+
+    function route() {
+      var id = (location.hash || '').replace(/^#\/?/, '') || 'home';
+      show(id);
+    }
+
+    window.addEventListener('hashchange', function () {
+      internalNavs++;
+      route();
+    });
+
+    btnSearch.addEventListener('click', function () { location.hash = '#search'; });
+
+    if (input) {
+      input.addEventListener('input', function () {
+        clearBtn.hidden = !input.value;
+        runSearch(input.value);
+      });
+      input.addEventListener('keydown', function (e) {
+        if (e.key !== 'Enter') return;
+        e.preventDefault();
+        var first = hitsEl.querySelector('a');
+        if (first) first.click();
+      });
+    }
+    if (clearBtn) {
+      clearBtn.addEventListener('click', function () {
+        input.value = '';
+        clearBtn.hidden = true;
+        runSearch('');
+        input.focus();
+      });
+    }
+
+    // "/" opens search on a keyboard
+    document.addEventListener('keydown', function (e) {
+      if (e.key === '/' && document.activeElement !== input) {
+        e.preventDefault();
+        location.hash = '#search';
+      }
+    });
+
+    route();
+  })();
+</script>
+
+</body>
+</html>
