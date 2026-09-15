@@ -1444,6 +1444,26 @@
       return;
     }
 
+    /* The first visit isn't controlled by the worker yet, so the font files
+       requested by the stylesheet never reach it. Pull them in deliberately
+       so the page still looks right with no signal. */
+    async function warmFonts() {
+      try {
+        var links = document.querySelectorAll('link[rel="stylesheet"]');
+        for (var i = 0; i < links.length; i++) {
+          if (links[i].href.indexOf('fonts.googleapis.com') === -1) continue;
+          var css = await (await fetch(links[i].href)).text();
+          var urls = css.match(/https:\/\/fonts\.gstatic\.com[^)"']+/g) || [];
+          var seen = {};
+          for (var j = 0; j < urls.length && j < 30; j++) {
+            if (seen[urls[j]]) continue;
+            seen[urls[j]] = 1;
+            try { await fetch(urls[j]); } catch (e) { /* one font is not fatal */ }
+          }
+        }
+      } catch (e) { /* fonts are a nicety, not the guide */ }
+    }
+
     async function verify() {
       try {
         var cache = await caches.open(CACHE);
@@ -1451,8 +1471,10 @@
         var hit = await cache.match(location.href, { ignoreSearch: true })
                || await caches.match('./index.html', { ignoreSearch: true })
                || await caches.match('./', { ignoreSearch: true });
-        if (hit) setBadge('ready', 'saved offline', 'saved to this phone — try it in airplane mode');
-        else notSaved();
+        if (hit) {
+          setBadge('ready', 'saved offline', 'saved to this phone — try it in airplane mode');
+          warmFonts();
+        } else notSaved();
       } catch (e) {
         notSaved();
       }
