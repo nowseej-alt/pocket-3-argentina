@@ -1492,7 +1492,7 @@
 
     /* --- offline status --- */
     var badge = document.getElementById('offline-badge');
-    var CACHE = 'pocket3-argentina-v1';
+    var CACHE = 'pocket3-argentina-v2';
 
     var note = document.getElementById('offline-note');
 
@@ -1560,7 +1560,8 @@
     if ('serviceWorker' in navigator && 'caches' in window) {
       window.addEventListener('load', function () {
         navigator.serviceWorker.register('sw.js', { scope: './' })
-          .then(function () { return navigator.serviceWorker.ready; })
+          .then(function (reg) { try { reg.update(); } catch (e) { /* not fatal */ }
+                                 return navigator.serviceWorker.ready; })
           .then(verify)
           .catch(function () { notSaved(); });
       });
