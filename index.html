@@ -582,6 +582,51 @@
   .details-body p { margin: 0 0 10px; }
   .details-body p:last-child { margin-bottom: 0; }
 
+  /* ---------- owner setup checklist ---------- */
+  .owner-flag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sol);
+    background: var(--sol-soft);
+    border-radius: 999px;
+    padding: 4px 10px;
+    margin-bottom: 12px;
+  }
+  ul.setup { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; background: var(--rule); border-block: 1px solid var(--rule); }
+  ul.setup li { margin: 0; background: var(--paper); }
+  ul.setup label {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 12px;
+    align-items: start;
+    padding: 11px 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  ul.setup input { margin: 3px 0 0; width: 18px; height: 18px; accent-color: var(--celeste); }
+  ul.setup .s-name { font-weight: 700; }
+  ul.setup .s-why { display: block; font-size: 14px; color: var(--ink-2); margin-top: 2px; line-height: 1.4; }
+  ul.setup input:checked ~ .s-txt { color: var(--ink-2); }
+  ul.setup input:checked ~ .s-txt .s-name { text-decoration: line-through; }
+  .s-val {
+    font-family: var(--mono);
+    font-size: 0.8em;
+    font-weight: 600;
+    background: var(--sunk);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin-left: 6px;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  .tabs a.owner { color: var(--sol); }
+  .tabs a.owner[aria-current="page"] { border-bottom-color: var(--sol); }
+
   /* ---------- checked-out inventory ---------- */
   .inv-head {
     display: flex;
@@ -709,6 +754,7 @@
       <a href="#kit">Checked out</a>
       <a href="#refs">More</a>
       <a href="#save" class="flag">Save offline</a>
+      <a href="#setup" class="owner">Setup</a>
     </nav>
     <div class="tab-search">
       <button class="bar-btn" id="nav-search" type="button" aria-label="Search the guide">
@@ -778,7 +824,9 @@
       <a href="#save" class="urgent"><span class="n">10</span><span><span class="t">Save offline</span><span class="d">Two minutes on Wi‑Fi before you fly</span></span><span class="chev">&rsaquo;</span></a>
     </nav>
 
-    <p class="search-hint" style="margin-top:18px;">Looking for one thing? Tap the <b>magnifying glass</b> in the top right and search the whole guide — it works offline too.</p>
+    <p class="search-hint" style="margin-top:18px;">Setting the camera up rather than borrowing it? The <strong>Setup</strong> tab is Caleb's pre-handover checklist — everything on it is already done by the time you get this.</p>
+
+    <p class="search-hint">Looking for one thing? Tap the <b>magnifying glass</b> in the top right and search the whole guide — it works offline too.</p>
   </section>
 
   <section id="search">
@@ -1300,6 +1348,71 @@
     </div>
   </section>
 
+  <section id="setup">
+    <p class="eyebrow">Owner</p>
+    <h2>Pre-handover setup</h2>
+    <p class="owner-flag">For Caleb, not for the borrower</p>
+    <p>If you're the one borrowing this camera, you can skip this tab — all of it was done before it reached you, and changing any of it will make the rest of the guide wrong.</p>
+
+    <div class="note">
+      <span class="note-label">On menu paths</span>
+      <p>DJI shuffles menu items between firmware versions. Everything below lives behind <strong>swipe down &rarr; the gear icon</strong>, which opens tabs for Camera, Gimbal, Display and System. If something isn't where it says, it's in one of those four.</p>
+    </div>
+
+    <div class="inv-head">
+      <span class="inv-count" id="setup-count">0 of 0 done</span>
+      <button class="inv-reset" id="setup-reset" type="button">Uncheck all</button>
+    </div>
+
+    <h3>1 &middot; Before any settings</h3>
+    <ul class="setup">
+      <li><label><input type="checkbox" id="su-charge"><span class="s-txt"><span class="s-name">Charge everything to 100%</span><span class="s-why">Camera and the battery attachment separately.</span></span></label></li>
+      <li><label><input type="checkbox" id="su-fw"><span class="s-txt"><span class="s-name">Update firmware in DJI Mimo</span><span class="s-why">Do it first — an update can reset settings and you do not want to redo the pass.</span></span></label></li>
+      <li><label><input type="checkbox" id="su-card"><span class="s-txt"><span class="s-name">Empty card in, spare in the bag</span><span class="s-why">The part-full one is the reserve.</span></span></label></li>
+      <li><label><input type="checkbox" id="su-format"><span class="s-txt"><span class="s-name">Format that card in the camera</span><span class="s-val">gear &rarr; Storage</span><span class="s-why">In-camera, not on the Mac. That is what prevents write errors later.</span></span></label></li>
+      <li><label><input type="checkbox" id="su-time"><span class="s-txt"><span class="s-name">Sync time, set zone to Argentina</span><span class="s-val">UTC&minus;3</span><span class="s-why">Sync from Mimo while paired, then check the zone.</span></span></label></li>
+    </ul>
+
+    <h3>2 &middot; The settings pass</h3>
+    <p>These have to match the Settings tab exactly — that tab tells him this is what's set, so any drift makes the guide lie.</p>
+    <ul class="setup">
+      <li><label><input type="checkbox" id="su-res"><span class="s-txt"><span class="s-name">Resolution and frame rate</span><span class="s-val">4K 30fps</span><span class="s-why">swipe up, or gear &rarr; Camera</span></span></label></li>
+      <li><label><input type="checkbox" id="su-ratio"><span class="s-txt"><span class="s-name">Aspect ratio</span><span class="s-val">16:9</span><span class="s-why">swipe up</span></span></label></li>
+      <li><label><input type="checkbox" id="su-colour"><span class="s-txt"><span class="s-name">Colour mode</span><span class="s-val">Normal</span><span class="s-why">Not D&#8209;Log M, not HLG. This is the one that ruins footage.</span></span></label></li>
+      <li><label><input type="checkbox" id="su-codec"><span class="s-txt"><span class="s-name">Encoding</span><span class="s-val">H.264 &middot; 8-bit</span><span class="s-why">gear &rarr; Camera</span></span></label></li>
+      <li><label><input type="checkbox" id="su-exp"><span class="s-txt"><span class="s-name">Exposure</span><span class="s-val">Auto &middot; EV 0</span><span class="s-why">swipe left into Pro to check, then back out</span></span></label></li>
+      <li><label><input type="checkbox" id="su-face"><span class="s-txt"><span class="s-name">Face and subject sensing</span><span class="s-val">On</span><span class="s-why">gear &rarr; Camera</span></span></label></li>
+      <li><label><input type="checkbox" id="su-gimbal"><span class="s-txt"><span class="s-name">Gimbal mode</span><span class="s-val">Follow</span><span class="s-why">gear &rarr; Gimbal</span></span></label></li>
+      <li><label><input type="checkbox" id="su-wind"><span class="s-txt"><span class="s-name">Wind noise reduction</span><span class="s-val">On</span><span class="s-why">gear &rarr; Camera, audio</span></span></label></li>
+      <li><label><input type="checkbox" id="su-grid"><span class="s-txt"><span class="s-name">Gridlines</span><span class="s-val">On</span><span class="s-why">gear &rarr; Display. The guide tells him to use these for horizons.</span></span></label></li>
+      <li><label><input type="checkbox" id="su-bright"><span class="s-txt"><span class="s-name">Screen brightness</span><span class="s-val">Auto / high</span><span class="s-why">He will be shooting in strong sun.</span></span></label></li>
+      <li><label><input type="checkbox" id="su-off"><span class="s-txt"><span class="s-name">Auto power off</span><span class="s-val">3&ndash;5 min</span><span class="s-why">gear &rarr; System</span></span></label></li>
+      <li><label><input type="checkbox" id="su-pro"><span class="s-txt"><span class="s-name">Leave Pro mode before handover</span><span class="s-why">If it sits in manual, his first tap could lock an exposure and he would not know why.</span></span></label></li>
+    </ul>
+
+    <h3>3 &middot; Prove it works</h3>
+    <ul class="setup">
+      <li><label><input type="checkbox" id="su-t1"><span class="s-txt"><span class="s-name">Shoot 30 seconds handheld, walking</span></span></label></li>
+      <li><label><input type="checkbox" id="su-t2"><span class="s-txt"><span class="s-name">Shoot 10 seconds talking to camera</span><span class="s-val">joystick &times;3</span></span></label></li>
+      <li><label><input type="checkbox" id="su-t3"><span class="s-txt"><span class="s-name">Play both back</span><span class="s-why">Sharp? Colour normal rather than flat and grey? Audio clean?</span></span></label></li>
+      <li><label><input type="checkbox" id="su-t4"><span class="s-txt"><span class="s-name">Delete the tests, confirm the card reads empty</span></span></label></li>
+      <li><label><input type="checkbox" id="su-t5"><span class="s-txt"><span class="s-name">Double-press the joystick</span><span class="s-why">The head should re-centre cleanly.</span></span></label></li>
+    </ul>
+    <div class="note warn">
+      <span class="note-label">The one to catch now</span>
+      <p>If playback looks flat, grey and washed out, it's still in D&#8209;Log M. Fix it before it leaves the house.</p>
+    </div>
+
+    <h3>4 &middot; Physical handover</h3>
+    <ul class="setup">
+      <li><label><input type="checkbox" id="su-h1"><span class="s-txt"><span class="s-name">Clean the lens</span><span class="s-why">Microfibre, not a shirt.</span></span></label></li>
+      <li><label><input type="checkbox" id="su-h2"><span class="s-txt"><span class="s-name">Check the Black Pro-Mist and wide-angle slots</span><span class="s-why">Empty is fine — just confirm, so he does not think he lost something.</span></span></label></li>
+      <li><label><input type="checkbox" id="su-h3"><span class="s-txt"><span class="s-name">Pack to the Checked out list</span><span class="s-why">Run it yourself once, as the person who would know what is missing.</span></span></label></li>
+      <li><label><input type="checkbox" id="su-h4"><span class="s-txt"><span class="s-name">Contact card in the bag</span><span class="s-why">Name, phone, email. Cheapest insurance there is.</span></span></label></li>
+      <li><label><input type="checkbox" id="su-h5"><span class="s-txt"><span class="s-name">Send him the link</span><span class="s-why">And tell him to do the Save offline tab before he flies.</span></span></label></li>
+    </ul>
+  </section>
+
   <footer>
     <p>Made for one borrowed camera and one week in Argentina. Anything not covered here, message Caleb — it's almost certainly a two-line answer.</p>
     <p>Have a brilliant trip. Shoot the boring stuff.</p>
@@ -1327,17 +1440,28 @@
     } catch (e) { /* non-fatal */ }
 
     /* --- checklist memory (per-phone, best effort) --- */
-    var boxes = document.querySelectorAll('ul.check input[type="checkbox"], ul.inv input[type="checkbox"]');
-    var invBoxes = document.querySelectorAll('ul.inv input[type="checkbox"]');
-    var counter = document.getElementById('inv-count');
-    var resetBtn = document.getElementById('inv-reset');
+    var boxes = document.querySelectorAll('ul.check input[type="checkbox"], ul.inv input[type="checkbox"], ul.setup input[type="checkbox"]');
+
+    // two independent checklists: the borrower's kit, and Caleb's setup pass
+    var GROUPS = [
+      { boxes: document.querySelectorAll('ul.inv input[type="checkbox"]'),
+        counter: document.getElementById('inv-count'),
+        reset: document.getElementById('inv-reset'),
+        word: 'accounted for' },
+      { boxes: document.querySelectorAll('ul.setup input[type="checkbox"]'),
+        counter: document.getElementById('setup-count'),
+        reset: document.getElementById('setup-reset'),
+        word: 'done' }
+    ];
 
     function tally() {
-      if (!counter || !invBoxes.length) return;
-      var done = 0;
-      Array.prototype.forEach.call(invBoxes, function (b) { if (b.checked) done++; });
-      counter.textContent = done + ' of ' + invBoxes.length + ' accounted for';
-      counter.setAttribute('data-all', done === invBoxes.length ? '1' : '0');
+      GROUPS.forEach(function (g) {
+        if (!g.counter || !g.boxes.length) return;
+        var done = 0;
+        Array.prototype.forEach.call(g.boxes, function (b) { if (b.checked) done++; });
+        g.counter.textContent = done + ' of ' + g.boxes.length + ' ' + g.word;
+        g.counter.setAttribute('data-all', done === g.boxes.length ? '1' : '0');
+      });
     }
 
     Array.prototype.forEach.call(boxes, function (box) {
@@ -1353,15 +1477,16 @@
       });
     });
 
-    if (resetBtn) {
-      resetBtn.addEventListener('click', function () {
-        Array.prototype.forEach.call(invBoxes, function (b) {
+    GROUPS.forEach(function (g) {
+      if (!g.reset) return;
+      g.reset.addEventListener('click', function () {
+        Array.prototype.forEach.call(g.boxes, function (b) {
           b.checked = false;
           try { localStorage.removeItem('p3:' + b.id); } catch (e) { /* ignore */ }
         });
         tally();
       });
-    }
+    });
 
     tally();
 
@@ -1453,7 +1578,7 @@
   (function () {
     'use strict';
 
-    var ORDER = ['home', 'body', 'menu', 'settings', 'shots', 'rules', 'power', 'fix', 'kit', 'refs', 'save'];
+    var ORDER = ['home', 'body', 'menu', 'settings', 'shots', 'rules', 'power', 'fix', 'kit', 'refs', 'save', 'setup'];
     var PAGED = ORDER.slice(1);   // home opens the guide, so it gets no previous/next
     var INDEXED = ORDER;          // but its sixty-second content must be searchable
     var TITLES = {
@@ -1468,7 +1593,8 @@
       power: 'Power, cards and the extra bits',
       fix: 'If something goes wrong',
       kit: 'Checked out',
-      refs: 'References'
+      refs: 'References',
+      setup: 'Pre-handover setup'
     };
 
     var wrap = document.querySelector('.wrap');
